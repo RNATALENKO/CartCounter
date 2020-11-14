@@ -5,6 +5,7 @@ import React, {Component} from "react";
 class Counter extends Component{
 
     //state object, holds data that will be dynamically displayed into a component
+    //props is an object, and you can access your property with .property
     state = {
         count:this.props.value,
         imageUrl: "https://picsum.photos/200",
@@ -51,9 +52,11 @@ class Counter extends Component{
 
         console.log("props", this.props);
 
+
         //return the virtual DOM element
         return (
             <div>
+                <h4>Counter # {this.props.id}</h4>
                 <span className={this.getBadgeClasses()}>  {this.formatCount()}  </span>
                 <button onClick={this.handleIncrement} className="btn btn-sm btn-secondary">Increment</button>
             </div>
