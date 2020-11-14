@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +67,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+=======
+# CartCounter
+A basic simulation of a cart counter, incrementing and decrementing, grasping fundamentals of react.js. A tutorial series done by Mosh. 
+>>>>>>> 04f6bf40aacb5f4236265f655504b34a8a27c40a
