@@ -16,12 +16,33 @@ class ListCounter extends Component {
         ]
      }
 
+     handleDelete = (counterId) =>{
+         console.log("handler method called", counterId);
+         //filter out counters based on id
+         const counters = this.state.counters.filter(counter => counter.id !== counterId);
+
+         //override state with the new counters
+         this.setState({counters});
+     }
+
+     handleReset = ()=>{
+        const counters = this.state.counters.map(counter =>{
+            counter.value = 0; 
+            return counter; 
+        })
+
+        this.setState({counters});
+     }
+
     //render the counter component within the ListCounter Component
     render() { 
         return (
             <div>
-               {this.state.counters.map(counter => <Counter id={counter.id} key={counter.id} value={counter.value} selected={true} >
-               
+                <button onClick={this.handleReset} className="btn btn-primary btn-sm m-2">Reset</button>
+                {this.state.counters.map(counter => <Counter 
+               onDelete={this.handleDelete} 
+               key={counter.id} 
+               counter={counter}>
                </Counter>)}
             </div>
         );

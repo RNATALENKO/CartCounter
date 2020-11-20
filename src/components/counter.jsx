@@ -7,7 +7,7 @@ class Counter extends Component{
     //state object, holds data that will be dynamically displayed into a component
     //props is an object, and you can access your property with .property
     state = {
-        count:this.props.value,
+        count:this.props.counter.value,
         imageUrl: "https://picsum.photos/200",
         tags: []
     }
@@ -39,7 +39,7 @@ class Counter extends Component{
         }
     
 
-    
+    //execute on click
     handleIncrement = () => {
         console.log(this.state.count);
         //add to the state count, and set that as the object count property, which overrides state
@@ -48,7 +48,16 @@ class Counter extends Component{
 
 
     //method that returns and displays a component
+    //can write css styling here because it's in a method not class
+    
     render(){
+
+        //some CSS classes
+        const deleteButton ={
+            marginLeft:"10px",
+            padding:"5px",
+        }
+
 
         console.log("props", this.props);
 
@@ -56,9 +65,10 @@ class Counter extends Component{
         //return the virtual DOM element
         return (
             <div>
-                <h4>Counter # {this.props.id}</h4>
+                <h4>Counter #{this.props.counter.id}</h4>
                 <span className={this.getBadgeClasses()}>  {this.formatCount()}  </span>
                 <button onClick={this.handleIncrement} className="btn btn-sm btn-secondary">Increment</button>
+                <button onClick={()=>{this.props.onDelete(this.props.counter.id)}} className="btn btn-danger" style={deleteButton}>delete</button>
             </div>
         );
     }
@@ -69,6 +79,10 @@ class Counter extends Component{
         classes += (this.state.count === 0 ? "warning" : "primary");
         return classes;
     }
+
+    
+
+
 }
 
 //export the counter component
